@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Card Info Finder</string>
+    <string name="enter_card_number">Enter card number</string>
+    <string name="check">Check Info</string>
+    <string name="card_brand">Card Brand</string>
+    <string name="card_type">Card Type</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="bank">Bank</string>
+    <string name="mintyn">Mintyn</string>
+    <string name="country">Country</string>
+    <string name="nigeria">Nigeria</string>
+    <string name="card_number_should_be_at_least_8_digits">Card Number should be at least 8 digits </string>
+    <string name="scan_card_number">Scan Card Number</string>
+    <string name="card_info_finder">Card Info Finder</string>
+</resources>

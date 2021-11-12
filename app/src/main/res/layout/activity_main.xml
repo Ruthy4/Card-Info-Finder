@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_brown"
+    tools:context=".ui.CardInfoActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/card_info_activity_appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/dashboard_activity_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_background">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inder"
+                android:textStyle="bold"
+                android:text="@string/card_info_finder"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/card_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_63dp"
+        android:layout_marginHorizontal="@dimen/margin_50dp"
+        android:src="@drawable/ic_money_transfer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_info_activity_appBarLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/card_number_text_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_50dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:hint="@string/enter_card_number"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:boxStrokeColor="@color/burnt_orange"
+        app:counterMaxLength="20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_image_view"
+        app:startIconDrawable="@drawable/ic_smock_creditcard"
+        app:startIconTint="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/card_number_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:inputType="number"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/check_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_34dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/inder"
+        android:paddingVertical="@dimen/padding_16dp"
+        android:text="@string/check"
+        android:textAllCaps="false"
+        android:textSize="@dimen/text_size_18sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/card_number_text_input_layout"
+        app:layout_constraintStart_toStartOf="@+id/card_number_text_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/card_number_text_input_layout" />
+
+    <Button
+        android:id="@+id/ocr_scan_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_14dp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_background_drawable_selector"
+        android:fontFamily="@font/inder"
+        android:paddingVertical="@dimen/padding_16dp"
+        android:text="@string/scan_card_number"
+        android:textAllCaps="false"
+        android:textSize="@dimen/text_size_18sp"
+        app:layout_constraintEnd_toEndOf="@+id/card_number_text_input_layout"
+        app:layout_constraintStart_toStartOf="@+id/card_number_text_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/check_button" />
+
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SurfaceView
+        android:id="@+id/surface_camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_image_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

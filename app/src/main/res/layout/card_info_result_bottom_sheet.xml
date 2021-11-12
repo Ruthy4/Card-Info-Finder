@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_info_result_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@null"
+    android:background="@color/dark_brown"
+    android:padding="@dimen/padding_32dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehaviour">
+
+    <TextView
+        android:id="@+id/card_brand_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inder"
+        android:letterSpacing="0.1"
+        android:text="@string/card_brand"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/visa_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:fontFamily="@font/inder"
+        android:letterSpacing="0.1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="@+id/card_brand_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/card_brand_text_view"
+        tools:text="Visa" />
+
+    <TextView
+        android:id="@+id/fragment_line_divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="@color/burnt_orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/visa_text_view" />
+
+    <TextView
+        android:id="@+id/card_type_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_25dp"
+        android:fontFamily="@font/inder"
+        android:letterSpacing="0.1"
+        android:text="@string/card_type"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_line_divider2" />
+
+    <TextView
+        android:id="@+id/credit_card_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:fontFamily="@font/inder"
+        android:letterSpacing="0.1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="@+id/card_type_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/card_type_text_view"
+        tools:text="Debit Card" />
+
+    <TextView
+        android:id="@+id/line_divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="@color/burnt_orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/credit_card_text_view" />
+
+    <TextView
+        android:id="@+id/bank_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_25dp"
+        android:fontFamily="@font/inder"
+        android:letterSpacing="0.1"
+        android:text="@string/bank"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_divider3" />
+
+    <TextView
+        android:id="@+id/bank_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:fontFamily="@font/inder"
+        android:letterSpacing="0.1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="@+id/bank_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/bank_text_view"
+        tools:text="Keystone Bank" />
+
+    <TextView
+        android:id="@+id/line_divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="@color/burnt_orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bank_name_text_view" />
+
+    <TextView
+        android:id="@+id/country_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_25dp"
+        android:fontFamily="@font/inder"
+        android:letterSpacing="0.1"
+        android:text="@string/country"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_divider4" />
+
+    <TextView
+        android:id="@+id/country_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:fontFamily="@font/inder"
+        android:letterSpacing="0.1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="@+id/country_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/country_text_view"
+        tools:text="Nigeria" />
+
+    <TextView
+        android:id="@+id/line_divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="@color/burnt_orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country_name_text_view" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
