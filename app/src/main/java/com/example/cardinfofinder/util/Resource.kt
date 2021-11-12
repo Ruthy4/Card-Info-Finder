@@ -1,8 +1,5 @@
 package com.example.cardinfofinder.util
 
-import com.example.cardinfofinder.domain.CardInfoModel
-import retrofit2.Response
-
 //sealed class Resource<T>(
 //    val data: T? = null,
 //    val errorBody: Response<Any>? = null,

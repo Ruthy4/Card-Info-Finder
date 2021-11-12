@@ -2,7 +2,6 @@ package com.example.cardinfofinder.di
 
 import com.example.cardinfofinder.network.RetrofitService
 import com.example.cardinfofinder.util.Constants.BASE_URL
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
