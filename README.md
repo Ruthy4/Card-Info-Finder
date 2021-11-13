@@ -34,6 +34,13 @@ Card Info finder is an app that takes in a card number and displays the card det
 
 - ViewBinding - binding data to views
 
+- [100% Kotlin](https://kotlinlang.org/) + [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - perform background operations
+
+
+- [Android Architecture components](https://developer.android.com/topic/libraries/architecture) ([ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel), [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation))
+
+- `Network` module - this is the main module. It contains code that wires multiple modules together like dependency injection setup and fundamental application configuration like retrofit configuration
+
 - Testing
     * [Unit Tests](https://en.wikipedia.org/wiki/Unit_testing) ([JUnit 5](https://junit.org/junit5/) via
     [android-junit5](https://github.com/mannodermaus/android-junit5))
