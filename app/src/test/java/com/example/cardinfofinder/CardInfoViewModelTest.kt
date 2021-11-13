@@ -2,7 +2,6 @@ package com.example.cardinfofinder
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.cardinfofinder.domain.CardInfoModel
 import com.example.cardinfofinder.repository.CardInfoRepository
 import com.example.cardinfofinder.ui.CardInfoViewModel
@@ -17,16 +16,15 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.mockito.Mockito
 import retrofit2.Response
 
 @ExperimentalCoroutinesApi
-class CardInfoViewModelTest{
+class CardInfoViewModelTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
     private lateinit var cardInfoViewModel: CardInfoViewModel
@@ -36,7 +34,6 @@ class CardInfoViewModelTest{
     private val responseInString = FakeCallResponse.CARD_INFO_RESPONSE
     private val gson = Gson()
     val cardInfoResponse: CardInfoModel = gson.fromJson(responseInString, CardInfoModel::class.java)
-
     val dispatcher = TestCoroutineDispatcher()
 
 
@@ -54,7 +51,7 @@ class CardInfoViewModelTest{
     }
 
 
-    fun setUpCallResponse(code: Int, body: CardInfoModel?, id: String) = runBlockingTest{
+    fun setUpCallResponse(code: Int, body: CardInfoModel?, id: String) = runBlockingTest {
         var fakeCallResponse: Response<CardInfoModel>? = null
 
         fakeCallResponse = if (code == 200) {
@@ -64,7 +61,6 @@ class CardInfoViewModelTest{
         } else {
             FakeCallResponse.fakeErrorCall(code, body)
         }
-
         Mockito.`when`(cardInfoRepository.getCardDetails(id))
             .thenReturn(fakeCallResponse)
 
@@ -81,6 +77,14 @@ class CardInfoViewModelTest{
         val response = cardInfoViewModel.cardInfoLiveData.getOrAwaitValue()
 
         assertEquals("TELLER, A.S.", response.data?.bank?.name)
+    }
+
+    @Test
+    fun test_test_error() = runBlockingTest {
+        setUpCallResponse(400, cardInfoResponse, "4187451")
+        cardInfoViewModel.getCardDetails("4187451")
+        val response = cardInfoViewModel.cardInfoLiveData.getOrAwaitValue()
+//        assertEquals("Bad request", response.data)
     }
 
 }

@@ -21,14 +21,18 @@ class CardInfoViewModel @Inject constructor(private val cardInfoRepository: Card
     /*function to get the details of the card*/
     fun getCardDetails(id:String)  = viewModelScope.launch {
 
-        _cardInfoMutableLiveData.postValue(Resource.loading(null))
-        cardInfoRepository.getCardDetails(id).let {
+       try {
+           _cardInfoMutableLiveData.postValue(Resource.loading(null))
+           cardInfoRepository.getCardDetails(id).let {
 
-            if (it.isSuccessful){
-                _cardInfoMutableLiveData.postValue(Resource.success(it.body()))
-            }else{
-                _cardInfoMutableLiveData.postValue(Resource.error(it.errorBody().toString(), null))
-            }
-        }
+               if (it.isSuccessful){
+                   _cardInfoMutableLiveData.postValue(Resource.success(it.body()))
+               }else{
+                   _cardInfoMutableLiveData.postValue(Resource.error(it.errorBody().toString(), null))
+               }
+           }
+       } catch (e:Exception) {
+
+       }
     }
 }
