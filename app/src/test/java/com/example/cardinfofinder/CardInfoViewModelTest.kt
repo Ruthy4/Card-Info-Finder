@@ -7,6 +7,7 @@ import com.example.cardinfofinder.repository.CardInfoRepository
 import com.example.cardinfofinder.ui.CardInfoViewModel
 import com.example.cardinfofinder.util.FakeCallResponse
 import com.example.cardinfofinder.util.Resource
+import com.example.cardinfofinder.util.Status
 import com.example.cardinfofinder.util.getOrAwaitValue
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
@@ -56,10 +57,8 @@ class CardInfoViewModelTest {
 
         fakeCallResponse = if (code == 200) {
             FakeCallResponse.fakeSuccessCall(code, body)
-        } else if (code == 204) {
-            FakeCallResponse.fakeNoContentCall(code)
         } else {
-            FakeCallResponse.fakeErrorCall(code, body)
+            FakeCallResponse.fakeErrorCall(code)
         }
         Mockito.`when`(cardInfoRepository.getCardDetails(id))
             .thenReturn(fakeCallResponse)
@@ -76,15 +75,25 @@ class CardInfoViewModelTest {
         cardInfoViewModel.getCardDetails("41874515")
         val response = cardInfoViewModel.cardInfoLiveData.getOrAwaitValue()
 
+        assertEquals(Status.SUCCESS, response.status)
+    }
+
+    @Test
+    fun test_test_success_with_data() = runBlockingTest {
+        setUpCallResponse(200, cardInfoResponse, "41874515")
+
+        cardInfoViewModel.getCardDetails("41874515")
+        val response = cardInfoViewModel.cardInfoLiveData.getOrAwaitValue()
+
         assertEquals("TELLER, A.S.", response.data?.bank?.name)
     }
 
     @Test
     fun test_test_error() = runBlockingTest {
-        setUpCallResponse(400, cardInfoResponse, "4187451")
-        cardInfoViewModel.getCardDetails("4187451")
+        setUpCallResponse(500, cardInfoResponse, "41874515")
+        cardInfoViewModel.getCardDetails("41874515")
         val response = cardInfoViewModel.cardInfoLiveData.getOrAwaitValue()
-//        assertEquals("Bad request", response.data)
+        assertEquals(Status.ERROR, response.status)
     }
 
 }

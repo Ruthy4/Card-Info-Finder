@@ -1,5 +1,6 @@
 package com.example.cardinfofinder.ui
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,7 +33,7 @@ class CardInfoViewModel @Inject constructor(private val cardInfoRepository: Card
                }
            }
        } catch (e:Exception) {
-
+           e.message
        }
     }
 }

@@ -1,12 +1,11 @@
-package com.example.cardinfofinder
+package com.example.cardinfofinder.ui
 
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.example.cardinfofinder.ui.CardInfoActivity
+import com.example.cardinfofinder.R
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
@@ -14,25 +13,28 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4ClassRunner::class)
-@HiltAndroidTest
-class MainTest {
 
-    @get:Rule
+@RunWith(AndroidJUnit4::class)
+@HiltAndroidTest
+class CardInfoActivityTest {
+
+    @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
 
+    @get:Rule(order = 1)
+    var activityScenarioRule: ActivityScenarioRule<CardInfoActivity> =
+        ActivityScenarioRule(CardInfoActivity::class.java)
+
     @Before
-    fun init() {
+    fun setUp() {
         hiltRule.inject()
     }
 
-    @get:Rule
-    val activityScenario = ActivityScenarioRule(CardInfoActivity::class.java)
-
-
     @Test
     fun test_card_number_edit_text_in_view() {
+        activityScenarioRule.scenario
         Espresso.onView(ViewMatchers.withId(R.id.card_number_edit_text))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }
+

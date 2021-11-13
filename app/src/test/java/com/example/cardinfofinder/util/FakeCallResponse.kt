@@ -5,7 +5,7 @@ import okhttp3.ResponseBody
 import retrofit2.Response
 
 object FakeCallResponse {
-    val emptyResponseBody: ResponseBody =
+    private val emptyResponseBody: ResponseBody =
         ResponseBody.create("application/json".toMediaTypeOrNull(), "");
 
     fun <T> fakeSuccessCall(code: Int, body: T?): Response<T> {
@@ -13,17 +13,8 @@ object FakeCallResponse {
         return call.execute()
     }
 
-    fun <T> fakeNoContentCall(code: Int): Response<T> {
-        val call = Calls.FakeCall(Response.success(code, emptyResponseBody as T), null)
-        return call.execute()
-    }
-
-    fun <T> fakeErrorCall(code: Int, body: T?): Response<T> {
-        var responseBody: T? = null
-        if (body == null) {
-            responseBody = emptyResponseBody as T
-        }
-        val call = Calls.FakeCall<T>(Response.error(code, responseBody as ResponseBody), null)
+    fun <T> fakeErrorCall(code: Int): Response<T> {
+        val call = Calls.FakeCall<T>(Response.error(code, emptyResponseBody), null)
         return call.execute()
     }
 

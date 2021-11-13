@@ -117,14 +117,16 @@ class CardInfoActivity : AppCompatActivity() {
                 }
                 Status.ERROR -> {
                     binding.progress.visibility = View.GONE
-                    Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT)
+                    Toast.makeText(this, "An error occurred, please try again", Toast.LENGTH_SHORT)
                         .show()
                 }
                 Status.LOADING -> {
                     binding.progress.visibility = View.VISIBLE
                 }
             }
-        })
+        }
+
+        )
     }
 
     private fun ocrScan() {
@@ -155,6 +157,7 @@ class CardInfoActivity : AppCompatActivity() {
                     Toast.makeText(this@CardInfoActivity, "${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+
             override fun surfaceChanged(p0: SurfaceHolder, p1: Int, p2: Int, p3: Int) {}
             override fun surfaceDestroyed(p0: SurfaceHolder) {
                 mCameraSource.stop()
@@ -182,6 +185,7 @@ class CardInfoActivity : AppCompatActivity() {
         })
     }
 
+
     /* requestPermission for user permission to access camera*/
     private fun requestForPermission() {
 
@@ -189,11 +193,14 @@ class CardInfoActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.CAMERA
-            ) != PackageManager.PERMISSION_GRANTED) {
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
             // Permission is not granted
             if (ActivityCompat.shouldShowRequestPermissionRationale(
                     this,
-                    Manifest.permission.CAMERA)) {
+                    Manifest.permission.CAMERA
+                )
+            ) {
             } else {
                 ActivityCompat.requestPermissions(
                     this,
@@ -227,7 +234,8 @@ class CardInfoActivity : AppCompatActivity() {
                     requestForPermission()
                 }
                 return
-            } else -> {
+            }
+            else -> {
             }
         }
     }
