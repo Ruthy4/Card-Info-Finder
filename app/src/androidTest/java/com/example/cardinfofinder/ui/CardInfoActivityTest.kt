@@ -1,8 +1,6 @@
 package com.example.cardinfofinder.ui
 
-import android.app.Dialog
 import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
@@ -12,14 +10,10 @@ import com.example.cardinfofinder.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import androidx.appcompat.widget.AppCompatTextView
-import androidx.test.ext.junit.rules.activityScenarioRule
-import java.lang.StringBuilder
 
 
 @RunWith(AndroidJUnit4::class)
