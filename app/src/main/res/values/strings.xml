@@ -12,4 +12,7 @@
     <string name="card_number_should_be_at_least_8_digits">Card Number should be at least 8 digits </string>
     <string name="scan_card_number">Scan Card Number</string>
     <string name="card_info_finder">Card Info Finder</string>
+    <string name="history">History</string>
+    <string name="card_number">Card Number</string>
+    <string name="save_info">Save Info</string>
 </resources>

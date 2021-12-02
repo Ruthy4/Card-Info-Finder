@@ -11,7 +11,7 @@
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehaviour">
 
     <TextView
-        android:id="@+id/card_brand_text_view"
+        android:id="@+id/card_number_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inder"
@@ -31,8 +31,8 @@
         android:letterSpacing="0.1"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_12sp"
-        app:layout_constraintStart_toStartOf="@+id/card_brand_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/card_brand_text_view"
+        app:layout_constraintStart_toStartOf="@+id/card_number_tv"
+        app:layout_constraintTop_toBottomOf="@+id/card_number_tv"
         tools:text="Visa" />
 
     <TextView
@@ -152,6 +152,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/country_name_text_view" />
+
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_34dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/inder"
+        android:paddingVertical="@dimen/padding_16dp"
+        android:text="@string/save_info"
+        android:textAllCaps="false"
+        android:textSize="@dimen/text_size_18sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/line_divider5"
+        app:layout_constraintStart_toStartOf="@+id/line_divider5"
+        app:layout_constraintTop_toBottomOf="@+id/line_divider5"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

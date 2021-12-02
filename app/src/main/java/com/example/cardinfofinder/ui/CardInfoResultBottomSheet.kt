@@ -29,6 +29,10 @@ class CardInfoResultBottomSheet : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.BottomSheetDialogStyle)
         observeCardInfo()
+
+        binding.saveButton.setOnClickListener {
+
+        }
     }
 
     /*get card details from viewModel*/

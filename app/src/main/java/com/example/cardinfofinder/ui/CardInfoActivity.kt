@@ -2,18 +2,18 @@ package com.example.cardinfofinder.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.SurfaceHolder
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
+import android.view.*
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
+import com.example.cardinfofinder.R
 import com.example.cardinfofinder.databinding.ActivityMainBinding
 import com.example.cardinfofinder.util.Constants.REQUEST_CODE
 import com.example.cardinfofinder.util.Status
@@ -38,12 +38,15 @@ class CardInfoActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         cardNumberEditText = binding.cardNumberEditText
+        val toolbar = binding.dashboardActivityToolbar
+        setSupportActionBar(toolbar)
+        title = ""
 
         /*Set Status bar Color*/
         val window: Window = this.window
         val background = ContextCompat.getDrawable(
             this,
-            com.example.cardinfofinder.R.drawable.toolbar_background
+            R.drawable.toolbar_background
         )
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = this.resources.getColor(android.R.color.transparent)
@@ -70,6 +73,22 @@ class CardInfoActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val menuInflater:MenuInflater = menuInflater
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.history -> {
+                val intent = Intent(this, HistoryActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     override fun onResume() {
         super.onResume()
@@ -125,7 +144,6 @@ class CardInfoActivity : AppCompatActivity() {
                 }
             }
         }
-
         )
     }
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="5dp"
+    android:layout_marginBottom="@dimen/margin_16dp"
+    android:layout_marginHorizontal="@dimen/margin_16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_16dp"
+        >
+
+
+        <TextView
+            android:id="@+id/card_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inder"
+            android:letterSpacing="0.1"
+            android:text="@string/card_number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/visa_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:fontFamily="@font/inder"
+            android:letterSpacing="0.1"
+            android:textColor="@color/burnt_orange"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintStart_toStartOf="@+id/card_number_tv"
+            app:layout_constraintTop_toBottomOf="@+id/card_number_tv"
+            tools:text="Visa" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/fragment_line_divider2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginTop="@dimen/margin_4dp"-->
+<!--            android:background="@color/burnt_orange"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/visa_text_view" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

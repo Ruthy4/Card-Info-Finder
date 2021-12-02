@@ -1,9 +1,10 @@
 package com.example.cardinfofinder.ui
 
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.cardinfofinder.R
@@ -24,8 +25,7 @@ class CardInfoActivityTest {
     val hiltRule = HiltAndroidRule(this)
 
     @get:Rule(order = 1)
-    var activityScenarioRule: ActivityScenarioRule<CardInfoActivity> =
-        ActivityScenarioRule(CardInfoActivity::class.java)
+    var activityScenarioRule: ActivityScenarioRule<CardInfoActivity> = ActivityScenarioRule(CardInfoActivity::class.java)
 
     private var dialog: BottomSheetDialog? = null
 
@@ -36,20 +36,20 @@ class CardInfoActivityTest {
 
     @Test
     fun test_card_number_edit_text_in_view() {
-        activityScenarioRule.scenario
-        Espresso.onView(ViewMatchers.withId(R.id.card_number_edit_text))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.card_number_edit_text))
+            .check(matches(isDisplayed()))
     }
 
     @Test
     fun test_that_user_can_enter_input() {
-        Espresso.onView(ViewMatchers.withId(R.id.card_number_edit_text)).perform(typeText("41874515"))
+        onView(ViewMatchers.withId(R.id.card_number_edit_text)).perform(typeText("41874515"),
+            closeSoftKeyboard()).perform(click())
     }
 
     @Test
     fun test_button_visibility_name(){
-        Espresso.onView(ViewMatchers.withId(R.id.check_button))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.check_button))
+            .check(matches(isDisplayed()))
     }
 
 }
