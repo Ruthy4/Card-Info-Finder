@@ -2,7 +2,9 @@ package com.example.cardinfofinder.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.*
@@ -16,6 +18,9 @@ import androidx.core.widget.doOnTextChanged
 import com.example.cardinfofinder.R
 import com.example.cardinfofinder.databinding.ActivityMainBinding
 import com.example.cardinfofinder.util.Constants.REQUEST_CODE
+import com.example.cardinfofinder.util.SavedCardPreference
+import com.example.cardinfofinder.util.SavedCardPreference.PREFERENCE_FILE_NAME
+import com.example.cardinfofinder.util.SessionManager
 import com.example.cardinfofinder.util.Status
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
@@ -32,6 +37,9 @@ class CardInfoActivity : AppCompatActivity() {
     private val cardInfoViewModel: CardInfoViewModel by viewModels()
     private lateinit var textRecognizer: TextRecognizer
     private lateinit var mCameraSource: CameraSource
+    lateinit var preference: SharedPreferences
+    lateinit var sessionManager: SessionManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +61,8 @@ class CardInfoActivity : AppCompatActivity() {
         window.setBackgroundDrawable(background)
 
         observeCardInfo()
+
+        preference = application.getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
 
         /*take input from the user and make the call to get card details*/
         binding.checkButton.setOnClickListener {
@@ -133,6 +143,8 @@ class CardInfoActivity : AppCompatActivity() {
                     CardInfoResultBottomSheet().apply {
                         show(supportFragmentManager, tag)
                     }
+                    SavedCardPreference.put(it.data, "KEY_CARD_INFO")
+                    sessionManager.saveToSharedPref(cardNumberEditText.text.toString().trim(), "CARD_NUMBER")
                 }
                 Status.ERROR -> {
                     binding.progress.visibility = View.GONE

@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_ocr_scan.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/card_info_result_bottom_sheet.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/history_rv_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.2953125" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.2953125" />

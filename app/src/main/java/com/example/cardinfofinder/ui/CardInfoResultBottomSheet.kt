@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.cardinfofinder.R
 import com.example.cardinfofinder.databinding.CardInfoResultBottomSheetBinding
+import com.example.cardinfofinder.domain.CardInfoModel
+import com.example.cardinfofinder.util.SavedCardPreference
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CardInfoResultBottomSheet : BottomSheetDialogFragment() {
@@ -31,6 +33,9 @@ class CardInfoResultBottomSheet : BottomSheetDialogFragment() {
         observeCardInfo()
 
         binding.saveButton.setOnClickListener {
+            cardInfoViewModel.cardInfoLiveData.observe(this, {
+                SavedCardPreference.put(it, "KEY_CARD_INFO")
+            })
 
         }
     }
