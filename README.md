@@ -1,6 +1,5 @@
 # Card-Info-Finder
 
-# Card-Info-Finder
 
 # Description
 
